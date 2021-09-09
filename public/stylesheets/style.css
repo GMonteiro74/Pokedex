@@ -1,0 +1,21 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00b7ff;
+}
+
+h1 {
+  color: 15px;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.type-img {
+    width: 40px;
+    height: 40px;
+}
