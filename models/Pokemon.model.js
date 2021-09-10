@@ -1,8 +1,6 @@
 const { Schema, model } = require("mongoose");
-const Pokedex = require ('pokedex-promise-v2');
-const pokedex = new Pokedex();
 
-const pokemonSchema = mongoose.Schema ({
+const pokemonSchema = new Schema({
     name: String, 
     // imageUrl: String,
     rating: Number,
@@ -14,6 +12,6 @@ const pokemonSchema = mongoose.Schema ({
     // },
 }); 
 
-const Pokemon = mongoose.model("Pokemon", pokemonSchema);
+const Pokemon = model("Pokemon", pokemonSchema);
 
 module.exports = Pokemon;

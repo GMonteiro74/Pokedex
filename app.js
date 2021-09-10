@@ -18,8 +18,28 @@ const app = express();
 // const Pokemon = require('pokemon.js');
 
 // Pokemon.setLanguage('english');
+const session = require('express-session');
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    cookie: {
+        sameSite: true, //both FE and BE are running on the same hostname
+        httpOnly: true,
+        maxAge: 60000, // session time
+    },
+    rolling: true,
+}));
 
 
+function getCurrentLoggedUser (req, res, next) {
+    if (req.session && req.session.currentUser) {
+        app.locals.loggedInUser = req.session.currentUser.username;
+    } else {
+        app.locals.loggedInUser = '';
+    }
+    next();
+}
+
+app.use(getCurrentLoggedUser)
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
 require("./config")(app);
 
@@ -32,8 +52,12 @@ app.locals.title = `${(projectName)}`;
 // 👇 Start handling routes here
 const index = require("./routes/index");
 app.use("/", index);
+
 const pokemon = require("./routes/pokemon");
 app.use("/", pokemon);
+
+const auth = require('./routes/auth');
+app.use('/', auth);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
