@@ -12,4 +12,4 @@ const pokemonSchema = new Schema ({
         required: true,
         enum: ["normal", "fighting", "flying", "poison", "ground", "rock", "bug", "ghost", "steel", "fire", "water", "grass", "electric", "psychic", "ice", "dragon", "dark", "fairy", "shadow"],
     },
-});
+}); 
