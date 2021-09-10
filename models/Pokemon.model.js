@@ -1,5 +1,6 @@
-
-const mongoose = require("mongoose");
+const { Schema, model } = require("mongoose");
+const Pokedex = require ('pokedex-promise-v2');
+const pokedex = new Pokedex();
 
 const pokemonSchema = mongoose.Schema ({
     name: String, 

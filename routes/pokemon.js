@@ -1,5 +1,3 @@
-const Pokemon = require("../models/Pokemon.model");
-
 const router = require("express").Router();
 
 router.get("/create", async (req, res, next) => {
