@@ -4,7 +4,6 @@ const Pokedex = require('pokedex-promise-v2');
 
 const pokedex = new Pokedex();
 
-
 /* GET home page */
 router.get("/", (req, res, next) => {
   res.render("index");
