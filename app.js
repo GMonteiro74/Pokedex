@@ -32,6 +32,8 @@ app.locals.title = `${(projectName)}`;
 // 👇 Start handling routes here
 const index = require("./routes/index");
 app.use("/", index);
+const pokemon = require("./routes/pokemon");
+app.use("/", pokemon);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);

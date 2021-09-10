@@ -4,8 +4,6 @@ const Pokedex = require('pokedex-promise-v2');
 
 const pokedex = new Pokedex();
 
-const Pokemon = require('pokemon.js');
-
 
 /* GET home page */
 router.get("/", (req, res, next) => {
