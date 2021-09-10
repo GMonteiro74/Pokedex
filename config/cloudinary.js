@@ -16,7 +16,7 @@ const storage = new CloudinaryStorage({
     cloudinary,
     params: {
         folder: 'pokemons',
-        allowed_formats: ['png'],
+        allowed_formats: ['png', 'jpg'],
     },
     filename: (req, file, cb) => { cb(null, file.originalname ) }
 })
