@@ -2,19 +2,10 @@
 <form action="/create" method="POST" enctype="multipart/form-data">
     <label>Name</label>
     <input type="text" name="name" />
-    {{!-- <label>Type</label> --}}
-    {{!-- <input type="text" name="author" /> --}}
-    {{!-- <select name="type">
-    <option value="0">Select Type</option>
-    {{#each type.enum}}
-        <option value="{{id}}">{{this}}</option>
-    {{/each}}
-    </select> --}}
     <label>Description</label>
     <textarea rows="5" cols="20" name="description"></textarea>
     <label>Rating</label>
     <input type="number" name="rating" />
-
     <label>Image</label>
     <input type="file" name="image" />
 

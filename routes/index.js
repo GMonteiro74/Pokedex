@@ -12,9 +12,9 @@ router.get("/", (req, res, next) => {
 router.get('/search', async (req, res) => {
   try {
     const pokemon = await pokedex.getPokemonByName(req.query.namePokemon);
-    const regions = await pokedex.getRegionsList();
-  console.log(pokemon.sprites.other.dream_world);
-  res.render('pokemons/detail', pokemon);    
+    const regions = await pokedex.getRegionsList(req.query.namePokemon);
+  console.log(pokemon);
+  res.render('pokemons/detail', pokemon, regions);    
   } catch (error) {
     res.render('not-found')
     console.log('Error searching the pokemon', error);
