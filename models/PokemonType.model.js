@@ -12,3 +12,4 @@ const PokemonTypeSchema = mongoose.Schema({
 const PokemonType = model("PokemonType", PokemonTypeSchema);
 
 module.exports = PokemonType;
+

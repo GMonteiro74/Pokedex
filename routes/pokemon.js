@@ -1,5 +1,4 @@
 const router = require("express").Router();
-const Pokemon = require("../models/Pokemon.model");
 // const fileUpload = require("../config/cloudinary");
 
 const Pokemon = require('../models/Pokemon.model');

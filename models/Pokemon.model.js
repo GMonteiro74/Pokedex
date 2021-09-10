@@ -7,12 +7,18 @@ const pokemonSchema = new Schema({
     rating: Number,
     description: String,
     type: {
-        type: String,
-        required: true,
-        enum: ["normal", "fighting", "flying", "poison", "ground", "rock", "bug", "ghost", "steel", "fire", "water", "grass", "electric", "psychic", "ice", "dragon", "dark", "fairy", "shadow"],
+      type: Schema.Types.ObjectId,
+      ref: "PokemonType" //this string Author relates to the model we created
     },
 }); 
 
 const Pokemon = model("Pokemon", pokemonSchema);
 
 module.exports = Pokemon;
+
+
+// type: {
+    //     type: String,
+    //     required: true,
+    //     enum: ["normal", "fighting", "flying", "poison", "ground", "rock", "bug", "ghost", "steel", "fire", "water", "grass", "electric", "psychic", "ice", "dragon", "dark", "fairy", "shadow"],
+    // },
