@@ -31,7 +31,7 @@ return;
         username,
         password: hashedPassword,
     });
-    res.redirect("/");
+    res.redirect("/community");
 });
 
 router.post("/login", async (req, res) => {
@@ -51,7 +51,7 @@ return;
 if (bcrypt.compareSync(password, user.password)) {
     //passwords match - login successfull
     req.session.currentUser = user;
-    res.redirect("/");
+    res.redirect("/community");
 } else {
     res.render("auth/login", { errorMessage: "Invalid Login" });
 }

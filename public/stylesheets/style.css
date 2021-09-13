@@ -12,13 +12,18 @@ body {
   font-family: 'Josefin Sans', sans-serif;;
 }
 
+/* NAV */
+
 nav {
   height: 12vh;
 }
 
 nav a {
   text-decoration: none;
-  color: aliceblue;
+  color: rgb(236, 236, 236);
+}
+nav h2 {
+  color: rgb(236, 236, 236);
 }
 
 button {
@@ -31,6 +36,8 @@ button {
   gap: 15%;
   align-items: center;
 }
+
+/* HOME */
 
 .home-wrapper {
   width: 60%;
@@ -75,11 +82,66 @@ button {
   color: rgb(236, 236, 236);
 }
 
-.index-container > div:nth-child(2) {
+.index-container > div:nth-child(2), .bg-community {
   background:linear-gradient(0deg, rgba(236, 192, 78, 0.9),rgba(236, 192, 78, 0.85)), url(../images/luxray.png);
   background-repeat: no-repeat;
   background-size: inherit;
   background-position: center center;
+}
+
+/* AUTHENTICATION */
+
+.bg-community {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-center {
+  width: 30%;
+  height: 55vh;
+  padding: 20px 0;
+  background-color: #212529;
+  color: rgb(236, 236, 236);
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.auth-center form {
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.auth-center input {
+  width: 120%;
+  padding: 0 30px;
+  height: 50px;
+}
+
+.auth-center > a {
+  background-color: rgb(236, 236, 236);
+  width: 50%;
+  padding: 10px 0;
+  color: #212529;
+  text-align: center;
+  text-decoration: none;
+}
+
+.auth-center form button {
+  color: rgb(236, 236, 236);
+}
+
+a.backBtn {
+  background-color: rgba(236, 236, 236, 0);
+  color: rgb(236, 236, 236);
 }
 
 a {
@@ -92,9 +154,10 @@ a {
   background-color: #212529;
   color: rgb(236, 236, 236);  
   text-decoration: none;
+  font-size: 1.2rem;
 }
 
-.mainBtn:hover {
+a:hover {
   color: rgb(236, 192, 78);
 }
 
@@ -110,3 +173,6 @@ h1 {
     width: 40px;
     height: 40px;
 }
+
+/* COMMUNITY FEED */
+
