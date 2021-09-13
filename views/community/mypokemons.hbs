@@ -4,6 +4,14 @@
         <p>{{name}}</p>
         <p>{{description}}</p>
         <img src="{{imageUrl}}" alt="">
+        <br />
     
+<a href="/community/{{id}}/edit">Edit Pokemon</a>
+
+<form action="/community/{{id}}/delete" method="POST">
+        <button type="submit">Delete</button>
+
+        <hr />
+
 {{/each}}
 

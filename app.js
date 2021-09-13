@@ -24,7 +24,7 @@ app.use(session({
     cookie: {
         sameSite: true, //both FE and BE are running on the same hostname
         httpOnly: true,
-        maxAge: 60000, // session time
+        maxAge: 360000, // session time
     },
     rolling: true,
 }));
