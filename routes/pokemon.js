@@ -11,6 +11,11 @@ function requireLogin(req, res, next) {
     }
   }
 
+  router.get("pokemon/:pokemonsId", async (req, res) => {
+    const pokemon = await Pokemon.findById(req.params.pokemonsId);
+    res.render("/", pokemon);
+  });
+
 router.get('/create', requireLogin, async (req, res) => {
     const poketypes = await PokemonType.find();
     res.render("create", {poketypes});
@@ -31,6 +36,24 @@ router.post('/create', fileUpload.single('image'), async (req, res) => {
         imageUrl: fileUrlOnCloudinary
      });
     res.redirect('/');
+});
+
+router.get("pokemon/:pokemonsId/edit", async (req, res) => {
+  const pokemon = await Pokemon.findById(req.params.pokemonsId);
+  res.render("user/pokemon-edit", pokemon);
+});
+
+router.post("/:pokemonsId/edit", async (req, res) => {
+  const { name, rating, description, type, imageUrl } = req.body;
+  await Pokemon.findByIdAndUpdate(req.params.pokemonsId, {
+    name, rating, description, type, imageUrl
+  });
+  res.redirect(`/${req.params.pokemonsId}`);
+});
+
+router.post("/:pokemonsId/delete", async (req, res) => {
+  await Pokemon.findByIdAndRemove(req.params.pokemonsId);
+  res.redirect("/pokemon");
 });
 
 module.exports = router;
