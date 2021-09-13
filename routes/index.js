@@ -11,15 +11,14 @@ router.get("/", (req, res, next) => {
 
 router.get('/search', async (req, res) => {
   try {
-    const pokemon = await pokedex.getPokemonByName(req.query.namePokemon);
-    // const regions = await pokedex.getRegionsList(req.query.namePokemon);
-  console.log(pokemon);
+    const pokemon = await pokedex.getPokemonByName(req.query.namePokemon).toLowerCase();
+    
+    // console.log(pokemon.sprites);
   res.render('pokemons/detail', pokemon);    
   } catch (error) {
     res.render('not-found')
     console.log('Error searching the pokemon', error);
   }
-  
 })
 
 router.get('/search-region', async (req, res) => {

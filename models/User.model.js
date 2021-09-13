@@ -9,6 +9,7 @@ const userSchema = new Schema({
   },
   // email: String,
   password: String,
+  favourites: Array,
 });
 
 const User = model("User", userSchema);

@@ -26,4 +26,5 @@ router.post('/create', fileUpload.single('image'), async (req, res) => {
     res.redirect('/');
 });
 
+
 module.exports = router;
