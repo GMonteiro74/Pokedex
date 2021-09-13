@@ -12,6 +12,16 @@ function requireLogin(req, res, next) {
     }
   }
 
+router.get('/community', async (req, res) => {
+    const pokemons = await Pokemon.find().populate('user');
+    res.render('community/index', {pokemons});
+ });
+
+router.get("community/:pokemonsId", async (req, res) => {
+    const pokemon = await Pokemon.findById(req.params.pokemonsId);
+    res.render("/", pokemon);
+});
+
 router.get('/create', requireLogin, async (req, res) => {
     const poketypes = await PokemonType.find();
     res.render("community/create", {poketypes});
@@ -41,5 +51,36 @@ router.get('/mypokemons', requireLogin, async (req, res) => {
 
 // $sort...
 
+// router.get("/community/:pokemonsId/edit", async (req, res) => {
+//   const pokemon = await Pokemon.findById(req.params.pokemonsId)//.populate("user");
+//   //const authors = await Author.find();
+//   res.render("community/pokemon-edit", { pokemon, authors });
+// });
+
+// router.post("/community/:pokemonsId/edit", async (req, res) => {
+//   const { name, rating, description, type, imageUrl } = req.body;
+//   await Pokemon.findByIdAndUpdate(req.params.pokemonsId, {
+//     name, rating, description, type, imageUrl
+//   });
+//   res.redirect(`/community/${req.params.pokemonsId}`);
+// });
+
+// router.post("/community/:pokemonsId/delete", async (req, res) => {
+//   await Pokemon.findByIdAndRemove(req.params.pokemonsId);
+//   res.redirect("/community/index");
+// });
+
+// router.post("/reviews/:pokemonsId/add", async (req, res) => {
+//   const { name, comment } = req.body;
+//   await Pokemon.findByIdAndUpdate(req.params.pokemonsId, {
+//     $push: { reviews: { name, comment } },
+//   });
+//   res.redirect(`/community/${req.params.pokemonsId}`);
+// }); // do we want reviews - then add reviews to the pokemon.model
+// reviews: [
+//   {
+//     name: String,
+//     comment: String,
+// }
 
 module.exports = router;
