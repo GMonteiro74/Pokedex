@@ -54,8 +54,11 @@ app.locals.title = `${(projectName)}`;
 const index = require("./routes/index");
 app.use("/", index);
 
-const pokemon = require("./routes/pokemon");
-app.use("/", pokemon);
+const community = require("./routes/community");
+app.use("/", community);
+
+const pokepedia = require('./routes/pokepedia');
+app.use('/', pokepedia);
 
 const auth = require('./routes/auth');
 app.use('/', auth);

@@ -8,7 +8,13 @@
 <ul>
     {{#each pokemon_entries}}
 
-    <li>{{pokemon_species.name}}</li>
+    <li>
+        <p>{{pokemon_species.name}}</p>
+        {{!-- {{#eq pokemon_species.name ../pokemon.name}} --}}
+        <a href=""></a>
+        {{!-- {{/eq}} --}}
+        </li>
+
 
     {{/each}}
 </ul>
