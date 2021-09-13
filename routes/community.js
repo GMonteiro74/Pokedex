@@ -13,7 +13,7 @@ function requireLogin(req, res, next) {
 
 router.get('/create', requireLogin, async (req, res) => {
     const poketypes = await PokemonType.find();
-    res.render("create", {poketypes});
+    res.render("community/create", {poketypes});
 });
 
 router.post('/create', fileUpload.single('image'), async (req, res) => {
@@ -30,7 +30,7 @@ router.post('/create', fileUpload.single('image'), async (req, res) => {
         type,
         imageUrl: fileUrlOnCloudinary
      });
-    res.redirect('/');
+    res.redirect('/community');
 });
 
 
