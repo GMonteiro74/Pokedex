@@ -1,0 +1,33 @@
+
+
+<h1>Welcome to the Community, {{loggedInUser}}!</h1>
+
+<ul>
+{{#each pokemons}} 
+{{!-- (<sort!-1> </sort!-1>) --}}
+    <li>{{name}}</li>
+        <br />
+    <li>{{imageUrl}}</li>
+    <li>{{rating}}</li>
+    <li>{{description}}</li>
+    <li>{{user.name}}</li>
+        <br />
+{{/each}}
+</ul>
+
+<ul>
+<li><a href="/create">Create Pokemon</a></li>
+<br/>
+<li><a href="/pokemon-edit">Edit Pokemon</a></li>
+<br/>
+<li><a href="/pokemon-edit">Remove Pokemon</a></li>
+<br/>
+<li><a href="/mypokemons">My Pokemons</a></li>
+<br/>
+<li><a href="/mypokemons">My Friend's Pokemons</a></li>
+</ul>
+
+
+{{!-- sort !-1 --}}
+
+{{!-- populate user --}}

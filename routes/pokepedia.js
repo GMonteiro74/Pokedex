@@ -5,7 +5,7 @@ const Pokedex = require('pokedex-promise-v2');
 const pokedex = new Pokedex();
 
 
-router.get('pokepedia/pokemon-search', async (req, res) => {
+router.get('/search-pokemon', async (req, res) => {
     try {
       const pokemon = await pokedex.getPokemonByName(req.query.namePokemon)
       
@@ -17,7 +17,7 @@ router.get('pokepedia/pokemon-search', async (req, res) => {
     }
   })
   
-  router.get('pokepedia/search-region', async (req, res) => {
+  router.get('/search-region', async (req, res) => {
     try{
     const region = await pokedex.getPokedexByName(req.query.regionName);
   

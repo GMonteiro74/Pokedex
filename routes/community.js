@@ -11,7 +11,12 @@ function requireLogin(req, res, next) {
     }
   }
 
-  router.get("pokemon/:pokemonsId", async (req, res) => {
+  router.get('/community', async (req, res) => {
+    const pokemons = await Pokemon.find();
+    res.render('community/index', {pokemons});
+  });
+
+  router.get("community/:pokemonsId", async (req, res) => {
     const pokemon = await Pokemon.findById(req.params.pokemonsId);
     res.render("/", pokemon);
   });
@@ -38,5 +43,36 @@ router.post('/create', fileUpload.single('image'), async (req, res) => {
     res.redirect('/community');
 });
 
+// router.get("/community/:pokemonsId/edit", async (req, res) => {
+//   const pokemon = await Pokemon.findById(req.params.pokemonsId)//.populate("user");
+//   //const authors = await Author.find();
+//   res.render("community/pokemon-edit", { pokemon, authors });
+// });
+
+// router.post("/community/:pokemonsId/edit", async (req, res) => {
+//   const { name, rating, description, type, imageUrl } = req.body;
+//   await Pokemon.findByIdAndUpdate(req.params.pokemonsId, {
+//     name, rating, description, type, imageUrl
+//   });
+//   res.redirect(`/community/${req.params.pokemonsId}`);
+// });
+
+// router.post("/community/:pokemonsId/delete", async (req, res) => {
+//   await Pokemon.findByIdAndRemove(req.params.pokemonsId);
+//   res.redirect("/community/index");
+// });
+
+// router.post("/reviews/:pokemonsId/add", async (req, res) => {
+//   const { name, comment } = req.body;
+//   await Pokemon.findByIdAndUpdate(req.params.pokemonsId, {
+//     $push: { reviews: { name, comment } },
+//   });
+//   res.redirect(`/community/${req.params.pokemonsId}`);
+// }); // do we want reviews - then add reviews to the pokemon.model
+// reviews: [
+//   {
+//     name: String,
+//     comment: String,
+// }
 
 module.exports = router;
