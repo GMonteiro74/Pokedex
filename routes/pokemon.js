@@ -1,10 +1,17 @@
 const router = require("express").Router();
 const PokemonType = require('../models/PokemonType.model');
 const fileUpload = require("../config/cloudinary");
-
 const Pokemon = require('../models/Pokemon.model');
 
-router.get('/create', async (req, res) => {
+function requireLogin(req, res, next) {
+    if (req.session.currentUser) {
+      next();
+    } else {
+      res.redirect("/login");
+    }
+  }
+
+router.get('/create', requireLogin, async (req, res) => {
     const poketypes = await PokemonType.find();
     res.render("create", {poketypes});
 });

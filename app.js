@@ -30,6 +30,7 @@ app.use(session({
 }));
 
 
+
 function getCurrentLoggedUser (req, res, next) {
     if (req.session && req.session.currentUser) {
         app.locals.loggedInUser = req.session.currentUser.username;
