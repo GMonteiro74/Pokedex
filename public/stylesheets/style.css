@@ -1,13 +1,101 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;400;600&display=swap');
 
+* {
+  border: none;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 body {
-  padding: 50px;
   font-family: 'Josefin Sans', sans-serif;;
+}
+
+nav {
+  height: 12vh;
+}
+
+nav a {
+  text-decoration: none;
+  color: aliceblue;
+}
+
+button {
+  background-color: rgba(240, 248, 255, 0);
+}
+
+.navbar-nav {
+  width: 80vw;
+  margin: 0 auto;
+  gap: 15%;
+  align-items: center;
+}
+
+.home-wrapper {
+  width: 60%;
+  margin: 0 auto;
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 55%;
+  justify-content: space-between;
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20%;
+}
+
+.index-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.index-container > div {
+  flex: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.index-container > div:first-child {
+  background:linear-gradient(0deg, rgba(233, 95, 65, 0.85),rgba(233, 95, 65, 0.85)), url(../images/arcanine.png);
+  background-repeat: no-repeat;
+  background-size: inherit;
+  background-position: center center;
+  color: rgb(236, 236, 236);
+}
+
+.index-container > div:nth-child(2) {
+  background:linear-gradient(0deg, rgba(236, 192, 78, 0.9),rgba(236, 192, 78, 0.85)), url(../images/luxray.png);
+  background-repeat: no-repeat;
+  background-size: inherit;
+  background-position: center center;
 }
 
 a {
   color: #00b7ff;
+}
+
+.mainBtn {
+  margin-top: 20%;
+  padding: 10px 50px;
+  background-color: #212529;
+  color: rgb(236, 236, 236);  
+  text-decoration: none;
+}
+
+.mainBtn:hover {
+  color: rgb(236, 192, 78);
 }
 
 h1 {

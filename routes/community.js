@@ -2,6 +2,7 @@ const router = require("express").Router();
 const PokemonType = require('../models/PokemonType.model');
 const fileUpload = require("../config/cloudinary");
 const Pokemon = require('../models/Pokemon.model');
+const User = require("../models/User.model");
 
 function requireLogin(req, res, next) {
     if (req.session.currentUser) {
@@ -22,16 +23,23 @@ router.post('/create', fileUpload.single('image'), async (req, res) => {
         fileUrlOnCloudinary = req.file.path; // the path on cloudinary
     }
     const { name, rating, description, type } = req.body;
-    console.log(name, rating,description, type);
     await Pokemon.create({ 
         name,
         rating,
         description,
         type,
+        user: req.session.currentUser,
         imageUrl: fileUrlOnCloudinary
      });
     res.redirect('/community');
 });
+
+router.get('/mypokemons', requireLogin, async (req, res) => {
+  const pokemons = await Pokemon.find({user: req.session.currentUser});
+  res.render('community/mypokemons', {pokemons});
+})
+
+// $sort...
 
 
 module.exports = router;

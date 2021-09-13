@@ -6,6 +6,7 @@ router.get("/", (req, res) => {
 });
 
 router.get('/pokepedia', (req, res) => {
+  console.log(loggedInUser);
   res.render('pokepedia/index');
 })
 
