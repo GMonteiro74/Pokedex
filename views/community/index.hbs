@@ -5,24 +5,21 @@
 <ul>
 {{#each pokemons}} 
 {{!-- (<sort!-1> </sort!-1>) --}}
-    <p>{{name}}</p>
     <p><img src="{{imageUrl}}" alt="" srcset=""></p>
+    <p>{{name}}</p>
+    {{!-- --> doesn't link to details yet --}}
     <p>{{rating}}</p>
     <p>{{description}}</p>
     <p>{{user.username}}</p>
+    
+    
 {{/each}}   
 </ul>
 
 <ul>
 <li><a href="/create">Create Pokemon</a></li>
 <br/>
-<li><a href="/pokemon-edit">Edit Pokemon</a></li>
-<br/>
-<li><a href="/pokemon-edit">Remove Pokemon</a></li>
-<br/>
 <li><a href="/mypokemons">My Pokemons</a></li>
-<br/>
-<li><a href="/mypokemons">My Friend's Pokemons</a></li>
 </ul>
 
 
