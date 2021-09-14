@@ -8,6 +8,12 @@ const pokemonSchema = mongoose.Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: "User"
     },
+    review: [
+      {
+        name: String, 
+        comment: String,
+    },
+    ],
     description: String,
     type: {
       type: mongoose.Schema.Types.ObjectId,

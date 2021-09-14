@@ -75,20 +75,13 @@ router.post("/community/:pokemonsId/delete", async (req, res) => {
   res.redirect("/community");
 });
 
-// router.post("/reviews/:pokemonsId/add", async (req, res) => {
-//   const { name, comment } = req.body;
-//   await Pokemon.findByIdAndUpdate(req.params.pokemonsId, {
-//     $push: { reviews: { name, comment } },
-//   });
-//   res.redirect(`/community/${req.params.pokemonsId}`);
-// }); 
+router.post("/reviews/:pokemonsId/add", async (req, res) => {
+  const { name, comment } = req.body;
+  await Pokemon.findByIdAndUpdate(req.params.pokemonsId, {
+    $push: { reviews: { name, comment } },
+  });
+  res.redirect(`/community/${req.params.pokemonsId}`);
+}); 
 
-
-// do we want reviews - then add reviews to the pokemon.model
-// reviews: [
-//   {
-//     name: String,
-//     comment: String,
-// }
 
 module.exports = router;
