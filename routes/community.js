@@ -30,7 +30,7 @@ router.get('/create', requireLogin, async (req, res) => {
 router.post('/create', fileUpload.single('image'), async (req, res) => {
     let fileUrlOnCloudinary = '';
     if (req.file) {
-        fileUrlOnCloudinary = req.file.path; // the path on cloudinary
+        fileUrlOnCloudinary = req.file.path;
     }
     const { name, rating, description, type } = req.body;
     await Pokemon.create({ 
@@ -55,16 +55,19 @@ router.get("/community/:pokemonsId/edit", async (req, res) => {
   res.render("community/pokemon-edit", { pokemon, users });
 });
 
-router.post("/community/:pokemonsId/edit", async (req, res) => {
+router.post("/community/:pokemonsId/edit", fileUpload.single('image'), async (req, res) => {
   let fileUrlOnCloudinary = '';
     if (req.file) {
-        fileUrlOnCloudinary = req.file.path; // the path on cloudinary
+        fileUrlOnCloudinary = req.file.path;
     }
-  const { name, rating, description, type, imageUrl } = req.body;
+  const { name, rating, description } = req.body;
   await Pokemon.findByIdAndUpdate(req.params.pokemonsId, {
-    name, rating, description, type, imageUrl: fileUrlOnCloudinary
+    name,
+    rating, 
+    description,
+    imageUrl: fileUrlOnCloudinary,
   });
-  res.redirect(`/community/${req.params.pokemonsId}`);
+  res.redirect('/mypokemons');
 });
 
 router.post("/community/:pokemonsId/delete", async (req, res) => {

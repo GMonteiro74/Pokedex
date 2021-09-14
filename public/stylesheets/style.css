@@ -9,26 +9,36 @@
 }
 
 body {
-  font-family: 'Josefin Sans', sans-serif;;
-  padding-top: 100px;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
+p {
+  margin-bottom: 0;
+}
 /* NAV */
 
 nav {
   height: 12vh;
 }
 
-nav a {
-  text-decoration: none;
-  color: rgb(236, 236, 236);
-}
-nav h2 {
+nav a, nav li, nav h2, .nav-item button {
   color: rgb(236, 236, 236);
 }
 
-button {
-  background-color: rgba(240, 248, 255, 0);
+.nav-item a {
+  text-decoration: none;
+  color: rgb(236, 236, 236);
+}
+
+.nav-item a:hover {
+  color: rgb(236, 236, 236);
+}
+
+.btn-shade {
+  background-color: rgb(233, 95, 65);
+  padding: 10px 40px;
+  border-radius: 30px;
+  
 }
 
 .navbar-nav {
@@ -138,6 +148,7 @@ button {
 
 .auth-center form button {
   color: rgb(236, 236, 236);
+  background-color: #21252900;
 }
 
 a.backBtn {
@@ -159,7 +170,7 @@ a {
 }
 
 a:hover {
-  color: rgb(236, 192, 78);
+  color: rgb(233, 95, 65);
 }
 
 h1 {
