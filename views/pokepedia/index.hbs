@@ -1,6 +1,13 @@
-<h1>{{title}}</h1>
-<p>I want to catch them all!</p>
+<div class="index-container">
 
+    <div> 
+        <div class="home-wrapper">
+            <div class="text-container">
+
+<h2>{{title}}</h2>
+<br/>
+<p>I want to catch them all!</p>
+<br/>
 <form action="/search-pokemon" method="GET">
 
     <label>Name of the pokemon</label>
@@ -9,7 +16,7 @@
 
 </form>
 
-<br>
+<br/>
 
 <form action="/search-region" method="GET">
 
@@ -18,3 +25,16 @@
     <button type="submit">Search</button>
 
 </form>
+
+<br/>
+<form action="/search-species" method="GET">
+
+    <label>Search for a species</label>
+    <input type="text" name="speciesName">
+    <button type="submit">Search</button>
+
+</form>
+
+</div>
+    </div>
+        </div>

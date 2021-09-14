@@ -8,8 +8,7 @@ const pokedex = new Pokedex();
 router.get('/search-pokemon', async (req, res) => {
     try {
       const pokemon = await pokedex.getPokemonByName(req.query.namePokemon)
-      
-      // console.log(pokemon.sprites);
+      console.log(pokemon.types);
     res.render('pokepedia/detail', pokemon);    
     } catch (error) {
       res.render('not-found')
@@ -28,5 +27,18 @@ router.get('/search-pokemon', async (req, res) => {
       console.log(error);
     }
   })
+
+  // router.get('/search-species', async (req, res) => {
+  //   try {
+  //     const pokemon = await pokedex.getPokemonByName(req.query.speciesName)
+  //     console.log(generation.pokemon-entries);
+  //   res.render('pokepedia/detail', pokemon);    
+  //   } catch (error) {
+  //     res.render('not-found')
+  //     console.log('Error searching the pokemon', error);
+  //   }
+  // })
+
+
 
   module.exports = router;

@@ -1,9 +1,14 @@
 
+<div class="home-wrapper">
+
+<br/>
+<br/>
+
 <h1 class="capitalize">{{name}}</h1>
 
 <img src="{{sprites.other.official-artwork.front_default}}" alt="">
 
-<h3>Type(s): </h3>
+<h5>Type(s): </h5>
     {{#each types}}
 
     <p>{{type.name}}</p>
@@ -11,7 +16,7 @@
     {{/each}}
 
 <div id="stats">
-    <h2>Stats:</h2>
+    <h5>Stats:</h5>
     <ul>
         <li>HP: {{stats.0.base_stat}}</li>
         <li>ATTACK: {{stats.1.base_stat}}</li>
@@ -22,3 +27,4 @@
     </ul>
 </div>
 
+</div>
