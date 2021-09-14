@@ -1,24 +1,25 @@
 
 <div class="bg-community">
-<h1>Welcome to the Community, {{loggedInUser}}!</h1>
+<h2>Welcome back to the Community, {{loggedInUser}}!</h2>
 
-<ul>
 {{#each pokemons}} 
+<ul class="community-feed">
+
 {{!-- (<sort!-1> </sort!-1>) --}}
-    <p><img src="{{imageUrl}}" alt="" srcset=""></p>
-    <p>{{name}}</p>
+    <img src="{{imageUrl}}" alt="" srcset="">
+    <div>
+    <h4>Name: {{name}}</h4>
     {{!-- --> doesn't link to details yet --}}
     <p>{{rating}}</p>
-    <p>{{description}}</p>
-    <p>{{user.username}}</p>
-    
-    
-{{/each}}   
+    <p>Description: {{description}}</p>
+    <p>Creator: {{user.username}}</p>
+    </div>
+     
 </ul>
+{{/each}}  
 
 <ul>
 <li><a href="/create">Create Pokemon</a></li>
-<br/>
 <li><a href="/mypokemons">My Pokemons</a></li>
 </ul>
 </div>

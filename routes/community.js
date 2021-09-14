@@ -13,8 +13,9 @@ function requireLogin(req, res, next) {
   }
 
 router.get('/community', async (req, res) => {
-    const pokemons = await Pokemon.find().populate('user');
+    const pokemons = await Pokemon.find(null, null, { sort: {createdAt: -1} }).populate('user');
     res.render('community/index', {pokemons});
+    
  });
 
 router.get("community/:pokemonsId", async (req, res) => {
@@ -72,23 +73,11 @@ router.post("/community/:pokemonsId/edit", fileUpload.single('image'), async (re
 
 router.post("/community/:pokemonsId/delete", async (req, res) => {
   await Pokemon.findByIdAndRemove(req.params.pokemonsId);
-  res.redirect("/community");
+  res.redirect("/mypokemons");
 });
 
-// router.post("/reviews/:pokemonsId/add", async (req, res) => {
-//   const { name, comment } = req.body;
-//   await Pokemon.findByIdAndUpdate(req.params.pokemonsId, {
-//     $push: { reviews: { name, comment } },
-//   });
-//   res.redirect(`/community/${req.params.pokemonsId}`);
-// }); 
-
-
-// do we want reviews - then add reviews to the pokemon.model
-// reviews: [
-//   {
-//     name: String,
-//     comment: String,
+// if (req.params.pokemonsId.user != req.session.currentUser) {
+      
 // }
 
 module.exports = router;

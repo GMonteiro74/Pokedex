@@ -13,6 +13,8 @@ const pokemonSchema = mongoose.Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: "PokemonType" 
     },
+}, {
+    timestamps:true,
 }); 
 
 const Pokemon = mongoose.model("Pokemon", pokemonSchema);

@@ -48,6 +48,10 @@ nav a, nav li, nav h2, .nav-item button {
   align-items: center;
 }
 
+.navbar-brand {
+  text-align: center;
+}
+
 /* HOME */
 
 .home-wrapper {
@@ -187,4 +191,39 @@ h1 {
 }
 
 /* COMMUNITY FEED */
+.bg-community {
+  padding-top: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5vh;
+}
 
+.community-feed {
+  border-radius: 20px;
+  background-color: rgb(236, 236, 236);
+  border: 2px solid #212529;
+  width: 60vw;
+  min-height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  padding: 40px 0;
+}
+
+.community-feed img {
+  width: 40%;
+  height: 40%;
+}
+
+.community-feed > div {
+  display: flex;
+  word-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 45%;
+}
