@@ -8,7 +8,7 @@ const pokemonSchema = mongoose.Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: "User"
     },
-    review: [
+    reviews: [
       {
         name: String, 
         comment: String,

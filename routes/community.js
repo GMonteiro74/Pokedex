@@ -13,7 +13,7 @@ function requireLogin(req, res, next) {
   }
 
 router.get('/community', async (req, res) => {
-    const pokemons = await Pokemon.find().populate('user');
+    const pokemons = await Pokemon.find().sort().populate('user');
     res.render('community/index', {pokemons});
  });
 
@@ -80,8 +80,9 @@ router.post("/reviews/:pokemonsId/add", async (req, res) => {
   await Pokemon.findByIdAndUpdate(req.params.pokemonsId, {
     $push: { reviews: { name, comment } },
   });
-  res.redirect(`/community/${req.params.pokemonsId}`);
+  res.redirect(`/community`);
 }); 
 
+///${req.params.pokemonsId}
 
 module.exports = router;
