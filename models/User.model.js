@@ -10,6 +10,8 @@ const userSchema = new Schema({
   // email: String,
   password: String,
   favourites: Array,
+}, {
+  timestamps:true,
 });
 
 const User = model("User", userSchema);

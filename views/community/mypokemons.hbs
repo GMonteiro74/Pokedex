@@ -1,17 +1,34 @@
+<div class="bg-community">
 
-{{#each pokemons}}
+        {{#each pokemons}}
+        <div class="card">
+                <div class="community-feed">
+                        <img src="{{imageUrl}}" alt="">
+                        <div>
+                                <h3>{{name}}</h3>
+                                <p><span class="bold">Description</span>: {{description}}</p>
+                                <p><span class="bold">type</span>: {{type.name}}</p>
+                                {{#each reviews}}
+                                <div>
+                                        <p><span class="bold">Reviews:</span></p>
+                                        <p>{{comment}}</p>
+                                        <p class="smfont">by: {{name}}</p>
+                                </div>
+                                {{/each}}
 
-        <p>{{name}}</p>
-        <p>{{description}}</p>
-        <img src="{{imageUrl}}" alt="">
-        <br />
-    
-<a href="/community/{{id}}/edit">Edit Pokemon</a>
+                        </div>
 
-<form action="/community/{{id}}/delete" method="POST">
-        <button type="submit">Delete</button>
+                </div>
+                <div class="card-bottom-btns">
 
-        <hr />
+                        <h5><a href="/community/{{id}}/edit">Edit Pokemon</a></h5>
 
-{{/each}}
+                        <form action="/community/{{id}}/delete" method="POST">
+                               <h5><button type="submit">Delete</button></h5>
+                        </form>
 
+                </div>
+        </div>
+        {{/each}}
+
+</div>
