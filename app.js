@@ -13,6 +13,9 @@ const express = require("express");
 // https://www.npmjs.com/package/hbs
 const hbs = require("hbs");
 
+const helpers = require('handlebars-helpers');
+hbs.registerHelper(helpers());
+
 const app = express();
 
 // const Pokemon = require('pokemon.js');

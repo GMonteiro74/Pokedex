@@ -1,22 +1,26 @@
-<h1>Create Pokemon</h1>
-<form action="/create" method="POST" enctype="multipart/form-data">
+<div class="bg-community">
+    <h1>Create Pokemon</h1>
+    <form class="community-form" action="/create" method="POST" enctype="multipart/form-data">
 
-    <label>Name</label>
-    <input type="text" name="name" required/>
-    <label>Description</label>
-    <textarea rows="5" cols="20" name="description" required></textarea>
-    <label>Rating</label>
-    <input type="number" name="rating" />
-    <label>Image</label>
-    <input type="file" name="image" required/>
+        <div><label>Name:</label>
+            <input type="text" name="name" required /></div>
 
-    <label>Type</label>
-    <select name="type" required>
-        <option value="0">select type</option>
-        {{#each poketypes}}
-        <option value="{{id}}">{{name}}</option>
-        {{/each}}
-    </select>
+        <div><label>Description:</label>
+            <textarea rows="5" cols="20" name="description" required></textarea></div>
 
-    <button type="submit">Create</button>
-</form>
+        
+            <div><label>Image:</label>
+            <input type="file" name="image" required /></div>
+
+        {{!-- <label>Type:</label> --}}
+            <select name="type" required>
+                <option value="0">select type</option>
+                {{#each poketypes}}
+                <option value="{{id}}">{{name}}</option>
+                {{/each}}
+            </select>
+
+
+        <button type="submit">Create</button>
+    </form>
+</div>

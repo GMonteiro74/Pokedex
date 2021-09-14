@@ -1,22 +1,29 @@
+
+<div class="bg-community">
 <h1>Edit Pokemon</h1>
-<form action="/community/{{pokemon.id}}/edit" method="POST" enctype="multipart/form-data">
+<form class="community-form" action="/community/{{pokemon.id}}/edit" method="POST" enctype="multipart/form-data">
 
-    <label>Name</label>
-    <input type="text" name="name" value="{{pokemon.name}}" />
-    <label>Description</label>
-    <textarea rows="5" cols="20" name="description">{{pokemon.description}}</textarea>
-    <label>Rating</label>
-    <input type="number" name="rating" value="{{pokemon.rating}}" />
-    <label>Image</label>
-    <input type="file" name="image" />
+    <div><label>Name</label>
+    <input type="text" name="name" value="{{pokemon.name}}" /></div>
 
-    {{!-- <label>Type</label>
+    <div><label>Description</label>
+    <textarea rows="5" cols="20" name="description">{{pokemon.description}}</textarea></div>
+    
+    <div><label>Image</label>
+    <input type="file" name="image" /></div>
+
     <select name="type">
-        <option value="{{id}}" selected>select type</option>
+        <option value="0">select type</option>
         {{#each poketypes}}
+        {{#eq name ../pokemon.type.name}}
+        <option value="{{id}}" selected>{{name}}</option>
+        {{else}}
         <option value="{{id}}">{{name}}</option>
+        {{/eq}}
         {{/each}}
-    </select> --}}
+    </select>
 
     <button type="submit">Update</button>
 </form>
+</div>
+

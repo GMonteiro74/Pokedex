@@ -3,11 +3,17 @@ const mongoose = require ("mongoose");
 const pokemonSchema = mongoose.Schema({
     name: String, 
     imageUrl: String,
-    rating: Number,
     user: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User"
     },
+    reviews: [
+      {
+        name: String, 
+        comment: String,
+    },
+    ],
+    rating: [],
     description: String,
     type: {
       type: mongoose.Schema.Types.ObjectId,

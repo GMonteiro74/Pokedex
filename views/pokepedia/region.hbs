@@ -9,10 +9,9 @@
     {{#each pokemon_entries}}
 
     <li>
-        <p>{{pokemon_species.name}}</p>
-        {{!-- {{#eq pokemon_species.name ../pokemon.name}} --}}
-        <a href=""></a>
-        {{!-- {{/eq}} --}}
+        
+        <a href="/search-pokemon?namePokemon={{pokemon_species.name}}">{{pokemon_species.name}}</a>
+        
         </li>
 
 

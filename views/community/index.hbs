@@ -3,27 +3,55 @@
 <h2>Welcome back to the Community, {{loggedInUser}}!</h2>
 
 {{#each pokemons}} 
-<ul class="community-feed">
+<div class="card">
+<div class="community-feed">
 
-{{!-- (<sort!-1> </sort!-1>) --}}
     <img src="{{imageUrl}}" alt="" srcset="">
     <div>
-    <h4>Name: {{name}}</h4>
-    {{!-- --> doesn't link to details yet --}}
-    <p>{{rating}}</p>
-    <p>Description: {{description}}</p>
-    <p>Creator: {{user.username}}</p>
+    <h4><span class="bold">Name</span>: {{name}}</h4>
+    <p><span class="bold">Description</span>: {{description}}</p>
+    <p><span class="bold">Creator</span>: {{user.username}}</p>
     </div>
-     
-</ul>
+
+</div>
+    <p>Add a review</p>
+<form action="/reviews/{{id}}/add" method="POST">
+    {{!-- <label>Name</label> --}}
+    <input type="text" name="name" placeholder="Name"/>
+
+    {{!-- <label>Comment</label> --}}
+    <textarea name="comment" placeholder="Comment"></textarea>
+
+    <button type="submit">Add review</button>
+
+</form>
+    
+
+{{!-- <form action="/rating/{{id}}/add" method="POST">     
+
+    <input class="star star-5" id="star-5" type="radio" name="star"/>
+    <label class="star star-5" for="star-5"></label>
+    <input class="star star-4" id="star-4" type="radio" name="star"/>
+    <label class="star star-4" for="star-4"></label>
+    <input class="star star-3" id="star-3" type="radio" name="star"/>
+    <label class="star star-3" for="star-3"></label>
+    <input class="star star-2" id="star-2" type="radio" name="star"/>
+    <label class="star star-2" for="star-2"></label>
+    <input class="star star-1" id="star-1" type="radio" name="star"/>
+    <label class="star star-1" for="star-1"></label>
+
+
+</form> --}}
+<hr />
+
+{{#each reviews}}
+<p>{{comment}} - {{name}}</p>
+{{/each}}
+    
+  
+  </div>
+
 {{/each}}  
 
-<ul>
-<li><a href="/create">Create Pokemon</a></li>
-<li><a href="/mypokemons">My Pokemons</a></li>
-</ul>
 </div>
 
-{{!-- sort !-1 --}}
-
-{{!-- populate user --}}

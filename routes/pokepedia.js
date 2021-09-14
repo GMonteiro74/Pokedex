@@ -9,7 +9,7 @@ router.get('/search-pokemon', async (req, res) => {
     try {
       const pokemon = await pokedex.getPokemonByName(req.query.namePokemon)
       
-      // console.log(pokemon.sprites);
+      console.log(pokedex.getTypeByName("ground"));
     res.render('pokepedia/detail', pokemon);    
     } catch (error) {
       res.render('not-found')
