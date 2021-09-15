@@ -31,7 +31,7 @@ return;
         username,
         password: hashedPassword,
     });
-    res.redirect("/community");
+    res.redirect("/login");
 });
 
 router.post("/login", async (req, res) => {

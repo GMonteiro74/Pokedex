@@ -13,8 +13,8 @@ router.get('/auth', (req, res) => {
   res.render('auth/index');
 })
 
-// router.get('/community', (req, res) => {
-//   res.render('community/index');
+// router.get('/pokepedia/index', (req, res) => {
+//   res.render('pokepedia/region');
 // })
 
 // router.get('/mypokemons', (req, res) => {

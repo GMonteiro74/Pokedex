@@ -1,19 +1,15 @@
+<form action="/search" method="POST">
 
-
-
-{{!-- <img src="{{location.game_indices.0.generation.url}}" alt="" srcset=""> --}}
-
-{{!-- <a href="{{game_indices.0.generation.url}}">This</a> --}}
+    <label>Region</label>
+    <input type="text" name="search">
+</form>
 
 <ul>
     {{#each pokemon_entries}}
-
     <li>
         
         <a href="/search-pokemon?namePokemon={{pokemon_species.name}}">{{pokemon_species.name}}</a>
         
         </li>
-
-
     {{/each}}
 </ul>

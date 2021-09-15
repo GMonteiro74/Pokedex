@@ -1,13 +1,17 @@
+<form action="/search" method="POST">
+
+    <label>Type of Pokemon</label>
+    <input type="text" name="search">
+</form>
 
 <ul>
     {{#each pokemon}}
 
     <li>
-        
+    
         <a href="/search-pokemon?namePokemon={{pokemon.name}}">{{pokemon.name}}</a>
         
         </li>
-
-
+        
     {{/each}}
 </ul>
