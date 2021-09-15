@@ -9,7 +9,8 @@ router.get('/search-pokemon', async (req, res) => {
     try {
       const pokemon = await pokedex.getPokemonByName(req.query.namePokemon)
       
-      console.log(pokedex.getTypeByName("ground"));
+      console.log(pokemon.types[0].type.name);
+      // pokedex.getTypeByName("ground")
     res.render('pokepedia/detail', pokemon);    
     } catch (error) {
       res.render('not-found')
@@ -29,17 +30,15 @@ router.get('/search-pokemon', async (req, res) => {
     }
   })
 
-  // router.get('/search-species', async (req, res) => {
-  //   try {
-  //     const pokemon = await pokedex.getPokemonByName(req.query.speciesName)
-  //     console.log(generation.pokemon-entries);
-  //   res.render('pokepedia/detail', pokemon);    
-  //   } catch (error) {
-  //     res.render('not-found')
-  //     console.log('Error searching the pokemon', error);
-  //   }
-  // })
-
-
+  router.get('/search-types', async (req, res) => {
+    try {
+      const types = await pokedex.getTypeByName(req.query.typeName)
+      console.log(types.pokemon[0].pokemon.name);
+    res.render('pokepedia/types', types);    
+    } catch (error) {
+      res.render('not-found')
+      console.log('Error searching the pokemon', error);
+    }
+  })
 
   module.exports = router;
