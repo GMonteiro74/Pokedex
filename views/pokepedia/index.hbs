@@ -8,32 +8,23 @@
 <br/>
 <p>I want to catch them all!</p>
 <br/>
-<form action="/search-pokemon" method="GET">
 
-    <label>Name of the pokemon</label>
-    <input type="text" name="namePokemon">
+
+
+
+<form action="/search" method="POST">
+
+<select name="searchType">
+    <option value="pokemon">Pokemon</option>
+    <option value="region">Region</option>
+    <option value="type">Type</option>
+</select>
+
+
     <button type="submit">Search</button>
-
 </form>
 
 <br/>
-
-<form action="/search-region" method="GET">
-
-    <label>Search for a region</label>
-    <input type="text" name="regionName">
-    <button type="submit">Search</button>
-
-</form>
-
-<br/>
-<form action="/search-types" method="GET">
-
-    <label>Search for a types</label>
-    <input type="text" name="typeName">
-    <button type="submit">Search</button>
-
-</form>
 
 </div>
     </div>

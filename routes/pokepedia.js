@@ -1,23 +1,7 @@
 const router = require("express").Router();
-
 const Pokedex = require('pokedex-promise-v2');
-
 const pokedex = new Pokedex();
 
-
-router.get('/search-pokemon', async (req, res) => {
-    try {
-      const pokemon = await pokedex.getPokemonByName(req.query.namePokemon)
-      
-      console.log(pokemon.types[0].type.name);
-      // pokedex.getTypeByName("ground")
-    res.render('pokepedia/detail', pokemon);    
-    } catch (error) {
-      res.render('not-found')
-      console.log('Error searching the pokemon', error);
-    }
-  })
-  
   router.get('/search-region', async (req, res) => {
     try{
     const region = await pokedex.getPokedexByName(req.query.regionName);
@@ -30,15 +14,27 @@ router.get('/search-pokemon', async (req, res) => {
     }
   })
 
+
+router.post('/search', async (req, res) => {
+  if (req.body.searchType === 'pokemon') {
+    // const pokemon = await pokedex.getPokemonByName(searchLowerCase);
+    res.render('pokepedia/search-pokemon');
+    } else if (req.body.searchType === 'region') {
+      res.render('pokepedia/search-region');
+    } else if (req.body.searchType === 'type') {
+        res.render('pokepedia/search-type');
+    }
+});
+
   router.get('/search-types', async (req, res) => {
     try {
       const types = await pokedex.getTypeByName(req.query.typeName)
-      console.log(types.pokemon[0].pokemon.name);
+      // console.log(types.pokemon[0].pokemon.name);
     res.render('pokepedia/types', types);    
     } catch (error) {
       res.render('not-found')
       console.log('Error searching the pokemon', error);
     }
-  })
 
+})
   module.exports = router;
