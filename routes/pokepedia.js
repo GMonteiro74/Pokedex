@@ -6,27 +6,39 @@ const pokedex = new Pokedex();
 
 
 router.get('/search-pokemon', async (req, res) => {
-    try {
-      const pokemon = await pokedex.getPokemonByName(req.query.namePokemon)
-      
-      console.log(pokedex.getTypeByName("ground"));
-    res.render('pokepedia/detail', pokemon);    
+  try {
+      const search = req.query.namePokemon;
+      const searchStr = String(search);
+      const searchLowerCase = searchStr.toLowerCase();
+
+      const pokemon = await pokedex.getPokemonByName(searchLowerCase);
+      const pokeMoves = Array.from(pokemon.moves);
+      // console.log(pokeMoves);
+
+      const promisesArray = [];
+
+      pokeMoves.forEach(move => {
+        promisesArray.push(pokedex.getMoveByName(move.move.name));
+      });
+
+      const allMoves = await Promise.all(promisesArray);
+
+      res.render('pokepedia/detail', { pokemon, allMoves }); 
     } catch (error) {
-      res.render('not-found')
-      console.log('Error searching the pokemon', error);
-    }
-  })
-  
-  router.get('/search-region', async (req, res) => {
-    try{
-    const region = await pokedex.getPokedexByName(req.query.regionName);
-  
-    console.log(region.pokemon_entries);
-    res.render('pokepedia/region', region)
-    } catch (error) {
-      res.render('not-found');
-      console.log(error);
-    }
-  })
+            res.render('not-found')
+            console.log('Error searching the pokemon', error);
+          }
+})
+
+router.get('/evolution/:name', async (req, res) => {
+  try {
+    const evolutions = await pokedex.getEvolutionChainsList(req.params.name);
+    console.log(evolutions);
+  } catch (error) {
+    res.render('not-found');
+    console.log(error);
+  }
+})
+
 
   module.exports = router;

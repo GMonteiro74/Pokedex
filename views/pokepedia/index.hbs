@@ -1,20 +1,36 @@
-<h1>{{title}}</h1>
-<p>I want to catch them all!</p>
 
+{{!-- <form action="/searchFilter" method="POST">
+
+    <h2>Search By: </h2>
+    <select name="searchType" >
+        <option value="pokemon">Pokemon</option>
+        <option value="region">Region</option>
+        <option value="Type">Type</option>
+    </select>
+    <button type="submit">Search</button>
+
+</form> --}}
+
+{{!-- <div class="search-bar"> --}}
+    <br>
+    <br>
+    <br>
+    <br>
 <form action="/search-pokemon" method="GET">
-
-    <label>Name of the pokemon</label>
+<label>Search pokemon</label>
     <input type="text" name="namePokemon">
     <button type="submit">Search</button>
-
 </form>
 
-<br>
-
-<form action="/search-region" method="GET">
-
-    <label>Search for a region</label>
-    <input type="text" name="regionName">
-    <button type="submit">Search</button>
-
+<form action="/test-evo">
+    <label>Evo</label>
+    <input type="text" name="evolution">
+    <button type="submit">GO</button>
 </form>
+{{!-- <form action="/search-region" method="GET">
+    <input type="text" name="search">
+</form>
+<form action="/search-type" method="GET">
+    <input type="text" name="search">
+</form> --}}
+{{!-- </div> --}}

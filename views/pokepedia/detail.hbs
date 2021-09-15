@@ -1,10 +1,10 @@
 
-<h1 class="capitalize">{{name}}</h1>
+<h1 class="capitalize">{{pokemon.name}}</h1>
 
-<img src="{{sprites.other.official-artwork.front_default}}" alt="">
+<img src="{{pokemon.sprites.other.official-artwork.front_default}}" alt="">
 
 <h3>Type(s): </h3>
-    {{#each types}}
+    {{#each pokemon.types}}
 
     <p>{{type.name}}</p>
 
@@ -13,12 +13,20 @@
 <div id="stats">
     <h2>Stats:</h2>
     <ul>
-        <li>HP: {{stats.0.base_stat}}</li>
-        <li>ATTACK: {{stats.1.base_stat}}</li>
-        <li>DEFENSE: {{stats.2.base_stat}}</li>
-        <li>SP. ATTACK: {{stats.3.base_stat}}</li>
-        <li>SP. DEFENSE: {{stats.4.base_stat}}</li>
-        <li>SPEED: {{stats.5.base_stat}}</li>
+        <li>HP: {{pokemon.stats.0.base_stat}}</li>
+        <li>ATTACK: {{pokemon.stats.1.base_stat}}</li>
+        <li>DEFENSE: {{pokemon.stats.2.base_stat}}</li>
+        <li>SP. ATTACK: {{pokemon.stats.3.base_stat}}</li>
+        <li>SP. DEFENSE: {{pokemon.stats.4.base_stat}}</li>
+        <li>SPEED: {{pokemon.stats.5.base_stat}}</li>
     </ul>
 </div>
+
+<h3>Moves:</h3>
+    {{#each allMoves}}
+    <h5>{{name}}</h5>
+    <p>PP: {{pp}}</p>
+    {{/each}}
+
+    
 
