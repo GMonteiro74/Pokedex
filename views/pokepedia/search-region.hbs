@@ -5,11 +5,27 @@
 <br/>
 <h1>test2</h1>
 
-<form action="/search-region" method="GET">
+{{!-- <form action="/search-region" method="GET">
 
     <label>Name of the Region</label>
     <input type="text" name="regionName">
     <button type="submit">Search</button>
 
+</form> --}}
+
+<form action="/search-region" method="POST">
+
+<select name="regionName">
+    <option value="kanto">Kanto</option>
+    <option value="johto">Johto</option>
+    <option value="hoenn">Hoenn</option>
+    <option value="sinnoh">Sinnoh</option>
+    <option value="unova">Unova</option>
+    <option value="alola">Alola</option>
+    <option value="galar">Galar</option>
+</select>
+
+
+    <button type="submit">Search</button>
 </form>
 

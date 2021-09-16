@@ -22,7 +22,15 @@
                 <h4>Join the community to create your own pokemon or check other people’s creations!</h4>
             </div>
 
-            <a class="mainBtn" href="/auth">Join</a>
+            {{#if loggedInUser}}
+
+                <a class="mainBtn" href="/community">Join</a>
+
+            {{else}}
+
+                <a class="mainBtn" href="/auth">Join</a>
+
+            {{/if}}
         </div>
 
     </div>

@@ -32,6 +32,7 @@ router.get('/search-pokemon', async (req, res) => {
       });
 
       const allMoves = await Promise.all(promisesArray);
+      console.log(allMoves[0].learned_by_pokemon);
 
       res.render('pokepedia/detail', { pokemon, allMoves }); 
     } catch (error) {
@@ -40,13 +41,33 @@ router.get('/search-pokemon', async (req, res) => {
     }
   })
 
-router.get('/search-region', async (req, res) => {
+router.post('/search-region', async (req, res) => {
 
-    try{
-    const region = await pokedex.getPokedexByName(req.query.regionName);
-  
-    console.log(region.pokemon_entries);
-    res.render('pokepedia/region', region)
+    try{ 
+    
+    if (req.body.regionName === 'kanto') {
+      const region = await pokedex.getPokedexByName('kanto');
+      res.render('pokepedia/region', region)
+    } else if (req.body.regionName === 'johto') {
+      const region = await pokedex.getPokedexByName('updated-johto');
+      res.render('pokepedia/region', region)
+    } else if (req.body.regionName === 'hoenn') {
+      const region = await pokedex.getPokedexByName('hoenn');
+      res.render('pokepedia/region', region)
+    } else if (req.body.regionName === 'sinnoh') {
+      const region = await pokedex.getPokedexByName('updated-johto');
+      res.render('pokepedia/region', region)
+    } else if (req.body.regionName === 'unova') {
+      const region = await pokedex.getPokedexByName('updated-unova');
+      res.render('pokepedia/region', region)
+    } else if (req.body.regionName === 'alola') {
+      const region = await pokedex.getPokedexByName('updated-alola');
+      res.render('pokepedia/region', region)
+    } else if (req.body.regionName === 'galar') {
+      const region = await pokedex.getPokedexByName('galar');
+      res.render('pokepedia/region', region)
+    }
+
     } catch (error) {
         res.render('not-found')
         console.log('Error searching the pokemon', error);
@@ -67,11 +88,22 @@ router.get('/search-types', async (req, res) => {
     try {
       const types = await pokedex.getTypeByName(req.query.typeName)
       // console.log(types.pokemon[0].pokemon.name);
-    res.render('pokepedia/types', types);    
+      res.render('pokepedia/types', types);    
     } catch (error) {
       res.render('not-found')
       console.log('Error searching the pokemon', error);
     } 
 })
+
+// router.get('/moves-learned', async (req, res) => {
+//   try {
+//     const moves = await pokedex.getMoveByName(move.move.name); 
+//     res.render('pokepedia/movesLearn', moves);
+//   } catch (error) {
+//     res.render('not-found')
+//     console.log('Error searching the pokemon', error);
+//   }
+  
+// })
 
 module.exports = router;

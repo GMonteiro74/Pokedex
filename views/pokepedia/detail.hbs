@@ -1,9 +1,6 @@
 
 <div class="home-wrapper">
 
-<br/>
-<br/>
-
 <h1 class="capitalize">{{name}}</h1>
 
 <img src="{{pokemon.sprites.other.official-artwork.front_default}}" alt="">
@@ -31,7 +28,9 @@
     {{#each allMoves}}
     <h5>{{name}}</h5>
     <p>PP: {{pp}}</p>
-    {{/each}}
+    <p>Power: {{power}}</p>
+    <p>Type: {{type.name}}</p>
+    <p>{{effect_entries.0.short_effect}}</p>
 
-    
+    {{/each}}
 
