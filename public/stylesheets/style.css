@@ -213,7 +213,15 @@ h1 {
   width: 60vw;
   min-height: 30vh;
   display: flex;
+  gap: 30px;
   flex-direction: column;
+}
+
+.card form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 
 .community-feed {
@@ -236,7 +244,7 @@ hr {
   flex-direction: column;
 }
 
-.community-feed input, .community-feed textarea{
+.card form input, .card form textarea{
   border: 1px solid #212529;
   padding: 5px;
   background-color: rgb(187, 187, 187);
@@ -309,10 +317,24 @@ hr {
   color: rgb(236, 236, 236);
 }
 
-.review {
+.reviews-container {
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
+  gap: 15px;
   align-items: center;
+}
+
+/* .review {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+
+} */
+
+.review > input, .review > textarea {
+  width: 40%;
+  padding: 5px 10px;
 }
 
 /* POKEPEDIA */
@@ -364,7 +386,9 @@ hr {
   flex-direction: column;
   border: 2px solid #212529;
   border-radius: 15px;
+  width: 85%;
   margin-top: 22vh;
+  margin-bottom: 10vh;
   padding: 40px 80px;
   background-color: rgba(236, 236, 236, 0.781);
   color: #212529;
@@ -382,7 +406,9 @@ hr {
 
 .img-stats img {
   width: 40%;
+  max-width: 300px;
   height: 40%;
+  max-height: 300px;
 }
 
 .img-stats div {
@@ -429,13 +455,10 @@ hr {
 ul {
   padding: 0;
 }
-
+ 
 #stats li {
   list-style-type: none; 
-  display:flex;
-  justify-content: space-evenly;
-  padding-top: 10px;
-  padding-bottom: 10px;
+
 }
 
 /* REGION */
@@ -450,10 +473,21 @@ ul {
   
 }
 
+.search-list {
+  margin-top: 22vh;
+  margin-bottom: 7vh;
+}
+
+.search-list h1 {
+  text-align: center;
+  padding-bottom: 60px;
+}
+
 .region-list li{
   width: 15%;
   background-color: rgba(236, 236, 236, 0.781);
-  border-radius: 30px;
+  padding: 10px 30px;
+  border-radius: 45px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -461,6 +495,7 @@ ul {
 
 .region-list a {
   text-align: center;
+  color: #212529;
 }
 
 .comment {
@@ -468,4 +503,13 @@ ul {
   justify-content: space-evenly;
   padding-top: 10px;
   padding-bottom: 10px;
+}
+
+.redBtn {
+  color: rgb(233, 95, 65);
+}
+
+.yellowbtn {
+  color: rgba(236, 192, 78, 0.9);
+  font-size: 1.2rem;
 }

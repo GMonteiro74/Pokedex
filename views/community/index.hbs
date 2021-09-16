@@ -1,41 +1,43 @@
-
 <div class="bg-community">
-<h2>Welcome back to the Community, {{loggedInUser}}!</h2>
+    <h2>Welcome back to the Community, {{loggedInUser}}!</h2>
 
-{{#each pokemons}} 
-<div class="card">
-<div class="community-feed">
+    {{#each pokemons}}
+    <div class="card">
+        <div class="community-feed">
 
-    <img src="{{imageUrl}}" alt="" srcset="">
-    <div>
-    <h4><span class="bold">Name</span>: {{name}}</h4>
-    <p><span class="bold">Description</span>: {{description}}</p>
-    <p><span class="bold">Creator</span>: {{user.username}}</p>
-    </div>
+            <img src="{{imageUrl}}" alt="" srcset="">
+            <div>
+                <h4><span class="bold">Name</span>: {{name}}</h4>
+                <p><span class="bold">Description</span>: {{description}}</p>
+                <p><span class="bold">Creator</span>: {{user.username}}</p>
+            </div>
 
-</div>
-    
-<form action="/reviews/{{id}}/add" method="POST" class="review">
-    {{!-- <label>Name</label> --}}
-    <input type="text" name="name" placeholder="Name"/>
-
-    {{!-- <label>Comment</label> --}}
-    <textarea name="comment" placeholder="Comment"></textarea>
-
-    <button type="submit">Add review</button>
-
-</form>
-
-<br />    
-
-<hr/>
-
-{{#each reviews}}
-<p class="comment">{{name}} - {{comment}}
-    <hr/>
-</p>
-    {{/each}}
         </div>
-    {{/each}}  
-</div>
 
+        <form action="/reviews/{{id}}/add" method="POST" class="review">
+            {{!-- <label>Name</label> --}}
+            <input type="text" name="name" placeholder="Name" />
+
+            {{!-- <label>Comment</label> --}}
+            <textarea name="comment" placeholder="Comment"></textarea>
+
+            <button type="submit">Add review</button>
+
+        </form>
+
+        <br />
+
+        <hr />
+        <div class="reviews-container">
+            {{#each reviews}}
+            <p class="comment"><span class="bold">{{name}}</span>: {{comment}}
+                <hr />
+            </p>
+            {{/each}}
+
+        </div>
+
+    </div>
+     {{/each}}
+
+</div>

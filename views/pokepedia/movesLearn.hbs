@@ -1,4 +1,14 @@
+<div class="bg-pokemon">
 
-{{#each learned_by_pokemon}}
-        <a href="/search-pokemon?namePokemon={{name}}">{{name}}</a> 
-{{/each}}
+        <div class="search-list">
+                <h1>Pokemons that can learn <span class="capitalize">{{name}}</span></h1>
+                <ul class="region-list">
+                        {{#each learned_by_pokemon}}
+                        <li>
+                                <a href="/search-pokemon?namePokemon={{name}}">{{name}}</a>
+                        </li>
+                        {{/each}}
+                </ul>
+        </div>
+
+</div>

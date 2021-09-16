@@ -7,7 +7,6 @@ router.post('/search', async (req, res) => {
 
   if (req.body.searchType === 'pokemon') {
       res.render('pokepedia/search-pokemon');
-      console.log(await pokedex.getLocationAreaByName("canalave-city-area"));
     } else if (req.body.searchType === 'region') {
       res.render('pokepedia/search-region');
     } else if (req.body.searchType === 'type') {
@@ -48,26 +47,29 @@ router.post('/search-region', async (req, res) => {
     
     if (req.body.regionName === 'kanto') {
       const region = await pokedex.getPokedexByName('kanto');
-      console.log(region);
-      res.render('pokepedia/region', region)
+      const location = await pokedex.getRegionByName("kanto");
+      res.render('pokepedia/region', {region, location})
     } else if (req.body.regionName === 'johto') {
       const region = await pokedex.getPokedexByName('updated-johto');
-      res.render('pokepedia/region', region)
+      const location = await pokedex.getRegionByName("johto");
+      console.log(location);
+      res.render('pokepedia/region', {region, location})
     } else if (req.body.regionName === 'hoenn') {
       const region = await pokedex.getPokedexByName('hoenn');
-      res.render('pokepedia/region', region)
-    } else if (req.body.regionName === 'sinnoh') {
-      const region = await pokedex.getPokedexByName('updated-johto');
-      res.render('pokepedia/region', region)
+      const location = await pokedex.getRegionByName("hoenn");
+      res.render('pokepedia/region', {region, location})
     } else if (req.body.regionName === 'unova') {
       const region = await pokedex.getPokedexByName('updated-unova');
-      res.render('pokepedia/region', region)
+      const location = await pokedex.getRegionByName("unova");
+      res.render('pokepedia/region', {region, location})
     } else if (req.body.regionName === 'alola') {
       const region = await pokedex.getPokedexByName('updated-alola');
-      res.render('pokepedia/region', region)
+      const location = await pokedex.getRegionByName("alola");
+      res.render('pokepedia/region', {region, location})
     } else if (req.body.regionName === 'galar') {
       const region = await pokedex.getPokedexByName('galar');
-      res.render('pokepedia/region', region)
+      const location = await pokedex.getRegionByName("galar");
+      res.render('pokepedia/region', {region, location})
     }
 
     } catch (error) {
@@ -76,15 +78,33 @@ router.post('/search-region', async (req, res) => {
     }
 })
 
-// router.get('/evolution/:name', async (req, res) => {
-//   try {
-//     const evolutions = await pokedex.getEvolutionChainsList(req.params.name);
-//     console.log(evolutions);
-//   } catch (error) {
-//     res.render('not-found');
-//     console.log(error);
-//   }
-// })
+router.get('/moves/:name', async (req, res) => {
+  try {
+    console.log(req.params.name);
+    const moves = await pokedex.getMoveByName(req.params.name);
+    console.log(moves);
+    // console.log(location);
+    res.render('pokepedia/movesLearn', moves)
+  } catch (error) {
+    res.render('not-found')
+    console.log('Error searching the pokemon', error);
+}
+})
+
+// PORQUE É QUE NAO FUNCIONA??
+
+router.get('/location/:name', async (req, res) => {
+  try {
+    console.log(req.params.name);
+    // console.log(await pokedex.getLocationAreaByName('lilycove-city'));
+    const location = await pokedex.getLocationAreaByName(req.params.name);
+    // console.log(location);
+    res.render('pokepedia/location', location)
+  } catch (error) {
+    res.render('not-found')
+    console.log('Error searching the pokemon', error);
+}
+})
 
 router.get('/search-types', async (req, res) => {
     try {
@@ -100,15 +120,5 @@ router.get('/search-types', async (req, res) => {
     } 
 })
 
-// router.get('/moves-learned', async (req, res) => {
-//   try {
-//     const moves = await pokedex.getMoveByName(move.move.name); 
-//     res.render('pokepedia/movesLearn', moves);
-//   } catch (error) {
-//     res.render('not-found')
-//     console.log('Error searching the pokemon', error);
-//   }
-  
-// })
 
 module.exports = router;

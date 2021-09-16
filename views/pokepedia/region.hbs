@@ -1,15 +1,35 @@
 <div class="bg-pokemon">
 
+    <div class="search-list">
+        <h1>Locations found in <span class="capitalize">{{region.name}}</span></h1>
+
+        <ul class="region-list">
+            
+        {{#each location.locations}}
+        <li>
+
+            <a href="/location/{{name}}">{{name}}</a>
+
+        </li>
+        {{/each}}
+        </ul>
+    </div>
+
+
+    <div class="search-list">
+
     
-    <h1>Pokemons found in <span class="capitalize">{{name}}</span></h1>
+    <h1>Pokemons found in <span class="capitalize">{{region.name}}</span></h1>
 <ul class="region-list">
-    {{#each pokemon_entries}}
-    <li class="region-list">
+    {{#each region.pokemon_entries}}
+    <li>
         
-        <a href="/search-pokemon?namePokemon={{pokemon_species.name}}">{{pokemon_species.name}}</a>
+        <a class="capitalize" href="/search-pokemon?namePokemon={{pokemon_species.name}}">{{pokemon_species.name}}</a>
         
     </li>
     {{/each}}
 </ul>
+
+    </div>
 
 </div>
