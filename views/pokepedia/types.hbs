@@ -1,9 +1,7 @@
-<form action="/search" method="POST">
 
-    <label>Type of Pokemon</label>
-    <input type="text" name="search">
-</form>
+<div class="bg-pokemon">
 
+    <h1><span class="capitalize">{{name}}</span> type pokemons</h1>
 <ul>
     {{#each pokemon}}
 
@@ -15,3 +13,4 @@
         
     {{/each}}
 </ul>
+</div>

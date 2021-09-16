@@ -7,6 +7,7 @@ router.post('/search', async (req, res) => {
 
   if (req.body.searchType === 'pokemon') {
       res.render('pokepedia/search-pokemon');
+      console.log(await pokedex.getLocationAreaByName("canalave-city-area"));
     } else if (req.body.searchType === 'region') {
       res.render('pokepedia/search-region');
     } else if (req.body.searchType === 'type') {
@@ -47,6 +48,7 @@ router.post('/search-region', async (req, res) => {
     
     if (req.body.regionName === 'kanto') {
       const region = await pokedex.getPokedexByName('kanto');
+      console.log(region);
       res.render('pokepedia/region', region)
     } else if (req.body.regionName === 'johto') {
       const region = await pokedex.getPokedexByName('updated-johto');
@@ -74,19 +76,22 @@ router.post('/search-region', async (req, res) => {
     }
 })
 
-router.get('/evolution/:name', async (req, res) => {
-  try {
-    const evolutions = await pokedex.getEvolutionChainsList(req.params.name);
-    console.log(evolutions);
-  } catch (error) {
-    res.render('not-found');
-    console.log(error);
-  }
-})
+// router.get('/evolution/:name', async (req, res) => {
+//   try {
+//     const evolutions = await pokedex.getEvolutionChainsList(req.params.name);
+//     console.log(evolutions);
+//   } catch (error) {
+//     res.render('not-found');
+//     console.log(error);
+//   }
+// })
 
 router.get('/search-types', async (req, res) => {
     try {
-      const types = await pokedex.getTypeByName(req.query.typeName)
+      const search = req.query.typeName;
+      const searchStr = String(search);
+      const searchLowerCase = searchStr.toLowerCase();
+      const types = await pokedex.getTypeByName(searchLowerCase)
       // console.log(types.pokemon[0].pokemon.name);
       res.render('pokepedia/types', types);    
     } catch (error) {
