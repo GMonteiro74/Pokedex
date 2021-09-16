@@ -22,7 +22,7 @@ a {
 }
 
 a:hover {
-  color: rgba(236, 192, 78);
+  color: rgba(236, 192, 78, 0.9);
 }
 
 .smfont {
@@ -227,7 +227,7 @@ h1 {
 
 hr {
   height: 5px;
-  width: 75%;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -307,6 +307,12 @@ hr {
   align-self: center;
   background-color: #212529;
   color: rgb(236, 236, 236);
+}
+
+.review {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 /* POKEPEDIA */
@@ -426,4 +432,40 @@ ul {
 
 #stats li {
   list-style-type: none; 
+  display:flex;
+  justify-content: space-evenly;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* REGION */
+
+.region-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 80vw;
+  gap: 30px;
+  
+}
+
+.region-list li{
+  width: 15%;
+  background-color: rgba(236, 236, 236, 0.781);
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.region-list a {
+  text-align: center;
+}
+
+.comment {
+  display:flex;
+  justify-content: space-evenly;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }

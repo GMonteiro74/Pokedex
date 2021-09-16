@@ -1,13 +1,15 @@
 <div class="bg-pokemon">
 
+    
     <h1>Pokemons found in <span class="capitalize">{{name}}</span></h1>
-<ul>
+<ul class="region-list">
     {{#each pokemon_entries}}
-    <li>
+    <li class="region-list">
         
-        <a class="mainBtn" href="/search-pokemon?namePokemon={{pokemon_species.name}}">{{pokemon_species.name}}</a>
+        <a href="/search-pokemon?namePokemon={{pokemon_species.name}}">{{pokemon_species.name}}</a>
         
     </li>
     {{/each}}
 </ul>
+
 </div>
