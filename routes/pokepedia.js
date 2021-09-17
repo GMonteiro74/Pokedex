@@ -23,7 +23,7 @@ router.get('/search-pokemon', async (req, res) => {
 
       const pokemon = await pokedex.getPokemonByName(searchLowerCase);
       const pokeMoves = Array.from(pokemon.moves);
-      // console.log(pokeMoves);
+      console.log(pokemon.abilities);
 
       const promisesArray = [];
 
@@ -32,7 +32,6 @@ router.get('/search-pokemon', async (req, res) => {
       });
 
       const allMoves = await Promise.all(promisesArray);
-      console.log(allMoves[0].learned_by_pokemon);
 
       res.render('pokepedia/detail', { pokemon, allMoves }); 
     } catch (error) {
@@ -91,15 +90,24 @@ router.get('/moves/:name', async (req, res) => {
 }
 })
 
-// PORQUE É QUE NAO FUNCIONA??
-
 router.get('/location/:name', async (req, res) => {
   try {
     console.log(req.params.name);
-    // console.log(await pokedex.getLocationAreaByName('lilycove-city'));
-    const location = await pokedex.getLocationAreaByName(req.params.name);
-    // console.log(location);
+    // console.log(await pokedex.getLocationAreaByName('cerulean-city-area'));
+    const location = await pokedex.getLocationByName(req.params.name);
+    console.log(location);
     res.render('pokepedia/location', location)
+  } catch (error) {
+    res.render('not-found')
+    console.log('Error searching the pokemon', error);
+}
+})
+
+router.get('/areas/:name', async (req, res) => {
+  try {
+    console.log(req.params.name);
+    const area = await pokedex.getLocationAreaByName(req.params.name);
+    res.render('pokepedia/area', area)
   } catch (error) {
     res.render('not-found')
     console.log('Error searching the pokemon', error);
@@ -112,7 +120,6 @@ router.get('/search-types', async (req, res) => {
       const searchStr = String(search);
       const searchLowerCase = searchStr.toLowerCase();
       const types = await pokedex.getTypeByName(searchLowerCase)
-      // console.log(types.pokemon[0].pokemon.name);
       res.render('pokepedia/types', types);    
     } catch (error) {
       res.render('not-found')

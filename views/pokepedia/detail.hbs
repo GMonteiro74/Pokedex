@@ -4,50 +4,54 @@
 
         <div class="img-stats">
 
-        <img src="{{pokemon.sprites.other.official-artwork.front_default}}" alt="">
+            <img src="{{pokemon.sprites.other.official-artwork.front_default}}" alt="">
 
-        <div>
-        <h1 class="capitalize">{{pokemon.name}}</h1>
+            <div>
+                <h1 class="capitalize">{{pokemon.name}}</h1>
 
-        <h3>Type(s): {{#each pokemon.types}}
-        
+                <h3>Type(s): {{#each pokemon.types}}
 
-        <a class="redBtn" href="/search-types?typeName={{type.name}}">{{type.name}}</a>
-        {{/each}}</h3>
 
-        <div id="stats">
-            
-            <ul>
-                <li>HP: {{pokemon.stats.0.base_stat}}</li>
-                <li>ATTACK: {{pokemon.stats.1.base_stat}}</li>
-                <li>DEFENSE: {{pokemon.stats.2.base_stat}}</li>
-                <li>SP. ATTACK: {{pokemon.stats.3.base_stat}}</li>
-                <li>SP. DEFENSE: {{pokemon.stats.4.base_stat}}</li>
-                <li>SPEED: {{pokemon.stats.5.base_stat}}</li>
-            </ul>
-        </div>
-        </div>
-        </div>
+                    <a class="redBtn" href="/search-types?typeName={{type.name}}">{{type.name}}</a>
+                    {{/each}}</h3>
 
-    <div class="moves-list">
-        <h3>Moves</h3>
+                <div id="stats">
 
-        
-        {{#each allMoves}}
-
-        <div class="moves-card">
-        <h5><a href="/moves/{{name}}">{{name}}</a></h5>
-        <div>
-        <p>PP: {{pp}}</p>
-        <p>Power: {{power}}</p>
-        <p>Type: {{type.name}}</p>
-        <p>{{effect_entries.0.short_effect}}</p>
-        </div>
+                    <ul>
+                        <li>HP: {{pokemon.stats.0.base_stat}}</li>
+                        <li>ATTACK: {{pokemon.stats.1.base_stat}}</li>
+                        <li>DEFENSE: {{pokemon.stats.2.base_stat}}</li>
+                        <li>SP. ATTACK: {{pokemon.stats.3.base_stat}}</li>
+                        <li>SP. DEFENSE: {{pokemon.stats.4.base_stat}}</li>
+                        <li>SPEED: {{pokemon.stats.5.base_stat}}</li>
+                    </ul>
+                </div>
+                <h5>Ability: {{#each pokemon.abilities}}
+                                {{ability.name}}
+                            {{/each}}
+                </h5>
+            </div>
         </div>
 
-        {{/each}}
-        
-    </div>
+        <div class="moves-list">
+            <h3>Moves</h3>
+
+
+            {{#each allMoves}}
+
+            <div class="moves-card">
+                <h5><a href="/moves/{{name}}">{{name}}</a></h5>
+                <div>
+                    <p>PP: {{pp}}</p>
+                    <p>Power: {{power}}</p>
+                    <p>Type: {{type.name}}</p>
+                    <p>{{effect_entries.0.short_effect}}</p>
+                </div>
+            </div>
+
+            {{/each}}
+
+        </div>
 
     </div>
 </div>

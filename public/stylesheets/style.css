@@ -423,7 +423,7 @@ hr {
   align-items: center;
   align-self: center;
   gap: 10vh;
-  width: 80%;
+  width: 90%;
 }
 
 .moves-list h5 {
@@ -466,10 +466,10 @@ ul {
 .region-list {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
   width: 80vw;
-  gap: 30px;
+  gap: 50px;
   
 }
 
@@ -484,12 +484,11 @@ ul {
 }
 
 .region-list li{
-  width: 15%;
+  width: 20%;
   background-color: rgba(236, 236, 236, 0.781);
   padding: 10px 30px;
-  border-radius: 45px;
+  border-radius: 50px;
   display: flex;
-  align-items: center;
   justify-content: center;
 }
 
