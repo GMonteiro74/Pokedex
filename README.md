@@ -5,4 +5,4 @@ In this project we used Handlebars, JavaScript, CSS, MongoDB, NodeJS, Express an
 
 It is also possible to use it to search for Pokemons and game locations (Nintendo Pokemon games) and use it to gather information from them, such as the types and stats.
 
-Made in collab with PeterChristof
+Made in collab with [PeterChristof](https://github.com/PeterChristof)
